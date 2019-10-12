@@ -20,7 +20,7 @@ cache:
 
 script:
   - vendor/bin/phpunit
-  - 'if [ "$TRAVIS_EVENT_TYPE" = "cron" ]; then php arty discord:test --body="test@Travis"; fi'
+  - 'if [ "$TRAVIS_EVENT_TYPE" = "cron" ]; then php arty soracom:latest"; fi'
 
 after_script:
   - ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
