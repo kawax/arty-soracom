@@ -87,7 +87,7 @@ return [
 
         Revolution\DiscordManager\Providers\DiscordManagerServiceProvider::class,
 
-        Revolution\Soracom\Providers\SoracomProductServiceProvider::class,
+        Revolution\Soracom\Providers\SoracomServiceProvider::class,
 
         App\Providers\AppServiceProvider::class,
     ],

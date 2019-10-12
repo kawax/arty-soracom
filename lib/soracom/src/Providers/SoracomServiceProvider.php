@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Config;
 use Revolution\Soracom\Client;
 use Revolution\Soracom\Contracts\Factory;
 
-class SoracomProductServiceProvider extends ServiceProvider implements DeferrableProvider
+class SoracomServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Bootstrap the application services.
