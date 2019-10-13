@@ -38,6 +38,11 @@ class Client implements Factory
     /**
      * @var string
      */
+    protected $operator_id;
+
+    /**
+     * @var string
+     */
     protected $api_key;
 
     /**
@@ -142,5 +147,13 @@ class Client implements Factory
     protected function endpoint(): string
     {
         return $this->endpoint;
+    }
+
+    /**
+     * @return string
+     */
+    public function operatorId(): string
+    {
+        return $this->operator_id;
     }
 }

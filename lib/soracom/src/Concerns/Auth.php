@@ -27,6 +27,34 @@ trait Auth
 
         $this->api_key = $res->apiKey ?? '';
         $this->token = $res->token ?? '';
+        $this->operator_id = $res->operatorId ?? '';
+
+        return $this;
+    }
+
+    /**
+     * @param  string  $email
+     * @param  string  $password
+     * @return $this
+     * @throws ClientException
+     */
+    public function authByPassword(string $email, string $password)
+    {
+        /**
+         * @var ResponseInterface $response
+         */
+        $response = $this->httpClient()->post($this->endpoint().'/auth', [
+            'json' => [
+                'email'    => $email,
+                'password' => $password,
+            ],
+        ]);
+
+        $res = json_decode($response->getBody());
+
+        $this->api_key = $res->apiKey ?? '';
+        $this->token = $res->token ?? '';
+        $this->operator_id = $res->operatorId ?? '';
 
         return $this;
     }
