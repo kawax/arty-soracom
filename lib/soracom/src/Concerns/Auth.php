@@ -16,8 +16,8 @@ trait Auth
          */
         $response = $this->httpClient()->post($this->endpoint().'/auth', [
             'json' => [
-                'email'    => $this->email,
-                'password' => $this->password,
+                'authKeyId' => $this->auth_id,
+                'authKey'   => $this->auth_secret,
             ],
         ]);
 

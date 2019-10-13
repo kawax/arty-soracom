@@ -1,6 +1,6 @@
 <?php
 return [
-    'email'    => env('SORACOM_EMAIL', ''),
-    'password' => env('SORACOM_PASSWORD', ''),
-    'endpoint' => env('SORACOM_ENDPOINT', 'https://api.soracom.io/v1'),
+    'auth_id'     => env('SORACOM_ID', ''),
+    'auth_secret' => env('SORACOM_SECRET', ''),
+    'endpoint'    => env('SORACOM_ENDPOINT', 'https://api.soracom.io/v1'),
 ];

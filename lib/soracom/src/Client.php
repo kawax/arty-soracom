@@ -28,12 +28,12 @@ class Client implements Factory
     /**
      * @var string
      */
-    protected $email;
+    protected $auth_id;
 
     /**
      * @var string
      */
-    protected $password;
+    protected $auth_secret;
 
     /**
      * @var string
@@ -57,8 +57,8 @@ class Client implements Factory
      */
     public function __construct(array $config)
     {
-        $this->email = $config['email'] ?? '';
-        $this->password = $config['password'] ?? '';
+        $this->auth_id = $config['auth_id'] ?? '';
+        $this->auth_secret = $config['auth_secret'] ?? '';
         $this->api_key = $config['api_key'] ?? '';
         $this->token = $config['token'] ?? '';
         $this->endpoint = $config['endpoint'] ?? self::API_BASE_URL;
