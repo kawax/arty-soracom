@@ -3,11 +3,13 @@
 namespace Revolution\Soracom\Concerns;
 
 use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\ClientException;
 
 trait Auth
 {
     /**
      * @return $this
+     * @throws ClientException
      */
     public function auth()
     {
@@ -23,8 +25,8 @@ trait Auth
 
         $res = json_decode($response->getBody());
 
-        $this->api_key = $res->apiKey;
-        $this->token = $res->token;
+        $this->api_key = $res->apiKey ?? '';
+        $this->token = $res->token ?? '';
 
         return $this;
     }
