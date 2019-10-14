@@ -9,8 +9,17 @@ interface Factory
 {
     /**
      * @return $this
+     * @throws ClientException
      */
     public function auth();
+
+    /**
+     * @param  string  $email
+     * @param  string  $password
+     * @return $this
+     * @throws ClientException
+     */
+    public function authByPassword(string $email, string $password);
 
     /**
      * @param  string  $api
@@ -33,4 +42,9 @@ interface Factory
      * @return $this
      */
     public function setHttpClient(ClientInterface $client);
+
+    /**
+     * @return array
+     */
+    public function getLatestBilling();
 }
