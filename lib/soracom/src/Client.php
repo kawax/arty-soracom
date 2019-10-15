@@ -18,8 +18,6 @@ class Client implements Factory
 
     use Macroable;
 
-    const API_BASE_URL = 'https://api.soracom.io/v1';
-
     /**
      * @var GuzzleClient
      */

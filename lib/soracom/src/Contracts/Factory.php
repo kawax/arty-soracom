@@ -7,6 +7,8 @@ use GuzzleHttp\Exception\ClientException;
 
 interface Factory
 {
+    public const API_BASE_URL = 'https://api.soracom.io/v1';
+
     /**
      * @return $this
      * @throws ClientException
