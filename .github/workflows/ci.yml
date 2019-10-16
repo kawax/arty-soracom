@@ -8,6 +8,11 @@ jobs:
   laravel:
     name: Laravel
     runs-on: ubuntu-latest
+    env:
+      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      DISCORD_CHANNEL: ${{ secrets.DISCORD_CHANNEL }}
+      SORACOM_ID: ${{ secrets.SORACOM_ID }}
+      SORACOM_SECRET: ${{ secrets.SORACOM_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -28,11 +33,6 @@ jobs:
         run: vendor/bin/phpunit
       - name: Discord
         run: php arty soracom:latest
-        env:
-          DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-          DISCORD_CHANNEL: ${{ secrets.DISCORD_CHANNEL }}
-          SORACOM_ID: ${{ secrets.SORACOM_ID }}
-          SORACOM_SECRET: ${{ secrets.SORACOM_SECRET }}
       - name: Send codeclimate
         run: ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
         env:
