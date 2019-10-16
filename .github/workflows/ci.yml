@@ -1,0 +1,35 @@
+# GitHub Action for Laravel
+name: Testing Laravel
+on:
+  schedule:
+  - cron: 5 3 * * *
+  
+jobs:
+  laravel:
+    name: Laravel
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@master #https://github.com/shivammathur/setup-php
+        with:
+          php-version: '7.3'
+          extension-csv: mbstring, dom, fileinfo
+          coverage: xdebug #optional
+      - name: Install Composer dependencies
+        run: composer install --no-progress --no-suggest --prefer-dist --optimize-autoloader
+      - name: Setup codeclimate
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter before-build
+      - name: Test with phpunit
+        run: vendor/bin/phpunit
+      - name: Send codeclimate
+        run: ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
