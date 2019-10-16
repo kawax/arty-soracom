@@ -2,7 +2,7 @@
 name: Testing Laravel
 on:
   schedule:
-  - cron: 5 3 * * *
+  - cron: 20 3 * * *
   
 jobs:
   laravel:
