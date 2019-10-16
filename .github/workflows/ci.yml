@@ -8,9 +8,6 @@ jobs:
   laravel:
     name: Laravel
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      max-parallel: 6
     steps:
       - name: Checkout
         uses: actions/checkout@v1
