@@ -2,7 +2,7 @@
 name: Testing Laravel
 on:
   schedule:
-  - cron: 25 2 * * *
+  - cron: 37 2 * * *
   
 jobs:
   laravel:
@@ -34,6 +34,6 @@ jobs:
       - name: Discord
         run: php arty soracom:latest
       - name: Send codeclimate
-        run: ./cc-test-reporter after-build -t clover --exit-code $TRAVIS_TEST_RESULT
+        run: ./cc-test-reporter after-build -t clover --exit-code $?
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
