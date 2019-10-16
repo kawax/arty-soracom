@@ -9,10 +9,10 @@ jobs:
     name: Laravel
     runs-on: ubuntu-latest
     env:
-      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-      DISCORD_CHANNEL: ${{ secrets.DISCORD_CHANNEL }}
-      SORACOM_ID: ${{ secrets.SORACOM_ID }}
-      SORACOM_SECRET: ${{ secrets.SORACOM_SECRET }}
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        DISCORD_CHANNEL: ${{ secrets.DISCORD_CHANNEL }}
+        SORACOM_ID: ${{ secrets.SORACOM_ID }}
+        SORACOM_SECRET: ${{ secrets.SORACOM_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
