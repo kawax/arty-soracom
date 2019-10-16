@@ -35,8 +35,8 @@ class LatestBillingCommand extends Command
     {
         $res = Soracom::auth()->getLatestBilling();
 
-        $this->info($res['lastEvaluatedTime']);
-        $this->info($res['amount']);
+        //        $this->info($res['lastEvaluatedTime']);
+        //        $this->info($res['amount']);
 
         Notification::route('discord', config('services.discord.channel'))
                     ->notify(new SoracomNotification($res));
