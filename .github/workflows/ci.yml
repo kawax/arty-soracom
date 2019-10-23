@@ -3,7 +3,7 @@ name: Testing Laravel
 on:
   schedule:
   - cron: 5 3 * * *
-  
+
 jobs:
   laravel:
     name: Laravel
@@ -31,8 +31,6 @@ jobs:
           ./cc-test-reporter before-build
       - name: Test with phpunit
         run: vendor/bin/phpunit
-      - name: Discord
-        run: php arty soracom:latest
       - name: Send codeclimate
         run: ./cc-test-reporter after-build -t clover --exit-code $?
         env:
