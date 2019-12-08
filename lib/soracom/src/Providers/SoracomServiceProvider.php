@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Config;
 
+use Symfony\Component\HttpClient\HttpClient;
+
 use Revolution\Soracom\Client;
 use Revolution\Soracom\Contracts\Factory;
 
@@ -18,9 +20,11 @@ class SoracomServiceProvider extends ServiceProvider implements DeferrableProvid
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../config/soracom.php' => config_path('soracom.php'),
-        ]);
+        $this->publishes(
+            [
+                __DIR__.'/../config/soracom.php' => config_path('soracom.php'),
+            ]
+        );
     }
 
     /**
@@ -31,12 +35,16 @@ class SoracomServiceProvider extends ServiceProvider implements DeferrableProvid
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/soracom.php', 'soracom'
+            __DIR__.'/../config/soracom.php',
+            'soracom'
         );
 
-        $this->app->singleton(Factory::class, function ($app) {
-            return new Client(Config::get('soracom'));
-        });
+        $this->app->singleton(
+            Factory::class,
+            function ($app) {
+                return new Client(HttpClient::create(), Config::get('soracom'));
+            }
+        );
     }
 
     /**

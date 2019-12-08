@@ -2,24 +2,18 @@
 
 namespace Revolution\Soracom;
 
-use Illuminate\Support\Traits\Macroable;
-
-use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ClientException;
-use Psr\Http\Message\ResponseInterface;
-
 use Revolution\Soracom\Contracts\Factory;
+use Illuminate\Support\Traits\Macroable;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Client implements Factory
 {
     use Concerns\Auth;
     use Concerns\Billing;
-
     use Macroable;
 
     /**
-     * @var GuzzleClient
+     * @var HttpClientInterface
      */
     protected $http;
 
@@ -56,10 +50,12 @@ class Client implements Factory
     /**
      * constructor.
      *
+     * @param  HttpClientInterface  $http
      * @param  array  $config
      */
-    public function __construct(array $config)
+    public function __construct(HttpClientInterface $http, array $config)
     {
+        $this->http = $http;
         $this->auth_id = $config['auth_id'] ?? '';
         $this->auth_secret = $config['auth_secret'] ?? '';
         $this->api_key = $config['api_key'] ?? '';
@@ -70,39 +66,43 @@ class Client implements Factory
     /**
      * @param  string  $api
      * @param  array  $params
+     *
      * @return array
-     * @throws ClientException
+     * @throws
      */
     public function get(string $api, array $params = [])
     {
-        /**
-         * @var ResponseInterface $response
-         */
-        $response = $this->httpClient()->get($this->endpoint().$api, [
-            'headers' => $this->headers(),
-            'query'   => $params,
-        ]);
+        $response = $this->httpClient()->request(
+            'GET',
+            $this->endpoint().$api,
+            [
+                'headers' => $this->headers(),
+                'query'   => $params,
+            ]
+        );
 
-        return json_decode($response->getBody(), true);
+        return $response->toArray();
     }
 
     /**
      * @param  string  $api
      * @param  array  $json
+     *
      * @return array
-     * @throws ClientException
+     * @throws
      */
     public function post(string $api, array $json = [])
     {
-        /**
-         * @var ResponseInterface $response
-         */
-        $response = $this->httpClient()->post($this->endpoint().$api, [
-            'headers' => $this->headers(),
-            'json'    => $json,
-        ]);
+        $response = $this->httpClient()->request(
+            'POST',
+            $this->endpoint().$api,
+            [
+                'headers' => $this->headers(),
+                'json'    => $json,
+            ]
+        );
 
-        return json_decode($response->getBody(), true);
+        return $response->toArray();
     }
 
     /**
@@ -117,22 +117,19 @@ class Client implements Factory
     }
 
     /**
-     * @return ClientInterface
+     * @return HttpClientInterface
      */
-    protected function httpClient(): ClientInterface
+    protected function httpClient(): HttpClientInterface
     {
-        if (is_null($this->http)) {
-            $this->http = new GuzzleClient();
-        }
-
         return $this->http;
     }
 
     /**
-     * @param  ClientInterface  $client
+     * @param  HttpClientInterface  $client
+     *
      * @return $this
      */
-    public function setHttpClient(ClientInterface $client)
+    public function setHttpClient(HttpClientInterface $client)
     {
         $this->http = $client;
 

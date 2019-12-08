@@ -2,14 +2,10 @@
 
 namespace Revolution\Soracom\Concerns;
 
-use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Exception\ClientException;
-
 trait Auth
 {
     /**
      * @return $this
-     * @throws ClientException
      */
     public function auth()
     {
@@ -24,8 +20,8 @@ trait Auth
     /**
      * @param  string  $email
      * @param  string  $password
+     *
      * @return $this
-     * @throws ClientException
      */
     public function authByPassword(string $email, string $password)
     {
@@ -39,23 +35,25 @@ trait Auth
 
     /**
      * @param  array  $json
+     *
      * @return $this
-     * @throws ClientException
+     * @throws
      */
     private function authRequest(array $json)
     {
-        /**
-         * @var ResponseInterface $response
-         */
-        $response = $this->httpClient()->post($this->endpoint().'/auth', [
-            'json' => $json,
-        ]);
+        $response = $this->httpClient()->request(
+            'POST',
+            $this->endpoint().'/auth',
+            [
+                'json' => $json,
+            ]
+        );
 
-        $res = json_decode($response->getBody());
+        $res = $response->toArray();
 
-        $this->api_key = $res->apiKey ?? '';
-        $this->token = $res->token ?? '';
-        $this->operator_id = $res->operatorId ?? '';
+        $this->api_key = $res['apiKey'] ?? '';
+        $this->token = $res['token'] ?? '';
+        $this->operator_id = $res['operatorId'] ?? '';
 
         return $this;
     }

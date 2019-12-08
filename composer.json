@@ -19,7 +19,8 @@
         "illuminate/view": "^6.0",
         "laravel-zero/framework": "^6.0",
         "ramsey/uuid": "^3.8",
-        "revolution/discord-manager": "^1.0"
+        "revolution/discord-manager": "^1.0",
+        "symfony/http-client": "^5.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.2",
