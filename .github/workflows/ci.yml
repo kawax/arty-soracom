@@ -19,7 +19,7 @@ jobs:
       - name: Setup PHP, with composer and extensions
         uses: shivammathur/setup-php@master #https://github.com/shivammathur/setup-php
         with:
-          php-version: '7.3'
+          php-version: '7.4'
           extension-csv: mbstring
           coverage: xdebug #optional
       - name: Install Composer dependencies
