@@ -2,14 +2,12 @@
 
 namespace Revolution\Soracom\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Config;
-
-use Symfony\Component\HttpClient\HttpClient;
-
+use Illuminate\Support\ServiceProvider;
 use Revolution\Soracom\Client;
 use Revolution\Soracom\Contracts\Factory;
+use Symfony\Component\HttpClient\HttpClient;
 
 class SoracomServiceProvider extends ServiceProvider implements DeferrableProvider
 {

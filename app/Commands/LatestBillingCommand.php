@@ -2,13 +2,11 @@
 
 namespace App\Commands;
 
-use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
-
-use Revolution\Soracom\Facades\Soracom;
-use Illuminate\Support\Facades\Notification;
-
 use App\Notifications\SoracomNotification;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Support\Facades\Notification;
+use LaravelZero\Framework\Commands\Command;
+use Revolution\Soracom\Facades\Soracom;
 
 class LatestBillingCommand extends Command
 {

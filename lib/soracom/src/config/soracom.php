@@ -1,4 +1,5 @@
 <?php
+
 return [
     'auth_id'     => env('SORACOM_ID', ''),
     'auth_secret' => env('SORACOM_SECRET', ''),
