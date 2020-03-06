@@ -3,7 +3,6 @@
 namespace Revolution\Soracom\Facades;
 
 use Illuminate\Support\Facades\Facade;
-
 use Revolution\Soracom\Contracts\Factory;
 
 class Soracom extends Facade

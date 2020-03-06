@@ -2,8 +2,8 @@
 
 namespace Revolution\Soracom;
 
-use Revolution\Soracom\Contracts\Factory;
 use Illuminate\Support\Traits\Macroable;
+use Revolution\Soracom\Contracts\Factory;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class Client implements Factory
