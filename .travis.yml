@@ -14,9 +14,9 @@ branches:
   only:
     - master
 
-cache:
-  directories:
-    - vendor
+#cache:
+#  directories:
+#    - vendor
 
 script:
   - 'if [ "$TRAVIS_EVENT_TYPE" = "cron" ]; then vendor/bin/phpunit; fi'
