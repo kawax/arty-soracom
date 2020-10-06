@@ -49,7 +49,7 @@ trait Auth
             ]
         );
 
-        $res = $response->toArray();
+        $res = json_decode($response->getBody(), true);
 
         $this->api_key = $res['apiKey'] ?? '';
         $this->token = $res['token'] ?? '';

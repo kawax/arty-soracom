@@ -2,7 +2,7 @@
 
 namespace Revolution\Soracom\Contracts;
 
-use Symfony\Contracts\HttpClient\HttpClientInterface;
+use GuzzleHttp\ClientInterface;
 
 interface Factory
 {
@@ -38,11 +38,11 @@ interface Factory
     public function post(string $api, array $json = []);
 
     /**
-     * @param  HttpClientInterface  $client
+     * @param  ClientInterface  $client
      *
      * @return $this
      */
-    public function setHttpClient(HttpClientInterface $client);
+    public function setHttpClient(ClientInterface $client);
 
     /**
      * @return array

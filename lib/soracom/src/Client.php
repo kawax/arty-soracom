@@ -4,7 +4,7 @@ namespace Revolution\Soracom;
 
 use Illuminate\Support\Traits\Macroable;
 use Revolution\Soracom\Contracts\Factory;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
+use GuzzleHttp\ClientInterface;
 
 class Client implements Factory
 {
@@ -13,7 +13,7 @@ class Client implements Factory
     use Macroable;
 
     /**
-     * @var HttpClientInterface
+     * @var ClientInterface
      */
     protected $http;
 
@@ -50,10 +50,10 @@ class Client implements Factory
     /**
      * constructor.
      *
-     * @param  HttpClientInterface  $http
+     * @param  ClientInterface  $http
      * @param  array  $config
      */
-    public function __construct(HttpClientInterface $http, array $config)
+    public function __construct(ClientInterface $http, array $config)
     {
         $this->http = $http;
         $this->auth_id = $config['auth_id'] ?? '';
@@ -81,7 +81,7 @@ class Client implements Factory
             ]
         );
 
-        return $response->toArray();
+        return json_decode($response->getBody(), true);
     }
 
     /**
@@ -102,7 +102,7 @@ class Client implements Factory
             ]
         );
 
-        return $response->toArray();
+        return json_decode($response->getBody(), true);
     }
 
     /**
@@ -117,19 +117,19 @@ class Client implements Factory
     }
 
     /**
-     * @return HttpClientInterface
+     * @return ClientInterface
      */
-    protected function httpClient(): HttpClientInterface
+    protected function httpClient(): ClientInterface
     {
         return $this->http;
     }
 
     /**
-     * @param  HttpClientInterface  $client
+     * @param  ClientInterface  $client
      *
      * @return $this
      */
-    public function setHttpClient(HttpClientInterface $client)
+    public function setHttpClient(ClientInterface $client)
     {
         $this->http = $client;
 

@@ -2,14 +2,12 @@
 
 namespace Revolution\Soracom\Providers;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Revolution\Soracom\Client;
 use Revolution\Soracom\Contracts\Factory;
-use Symfony\Component\HttpClient\HttpClient;
+use GuzzleHttp\Client as GuzzleClient;
 
-class SoracomServiceProvider extends ServiceProvider implements DeferrableProvider
+class SoracomServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -20,7 +18,7 @@ class SoracomServiceProvider extends ServiceProvider implements DeferrableProvid
     {
         $this->publishes(
             [
-                __DIR__.'/../config/soracom.php' => config_path('soracom.php'),
+                __DIR__.'/../config/soracom.php' => $this->app->configPath('soracom.php'),
             ]
         );
     }
@@ -40,20 +38,8 @@ class SoracomServiceProvider extends ServiceProvider implements DeferrableProvid
         $this->app->singleton(
             Factory::class,
             function ($app) {
-                return new Client(HttpClient::create(), Config::get('soracom'));
+                return new Client(new GuzzleClient(), $app['config']->get('soracom'));
             }
         );
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return string[]
-     */
-    public function provides()
-    {
-        return [
-            Factory::class,
-        ];
     }
 }
