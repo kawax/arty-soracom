@@ -1,28 +1,13 @@
 <?php
 
-namespace Revolution\Soracom\Providers;
+namespace Revolution\Soracom;
 
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\ServiceProvider;
-use Revolution\Soracom\Client;
 use Revolution\Soracom\Contracts\Factory;
 
 class SoracomServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->publishes(
-            [
-                __DIR__.'/../config/soracom.php' => $this->app->configPath('soracom.php'),
-            ]
-        );
-    }
-
     /**
      * Register the application services.
      *
@@ -40,6 +25,20 @@ class SoracomServiceProvider extends ServiceProvider
             function ($app) {
                 return new Client(new GuzzleClient(), $app['config']->get('soracom'));
             }
+        );
+    }
+
+    /**
+     * Bootstrap the application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes(
+            [
+                __DIR__.'/../config/soracom.php' => $this->app->configPath('soracom.php'),
+            ]
         );
     }
 }
