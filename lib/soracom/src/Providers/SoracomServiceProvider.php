@@ -2,10 +2,10 @@
 
 namespace Revolution\Soracom\Providers;
 
+use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\ServiceProvider;
 use Revolution\Soracom\Client;
 use Revolution\Soracom\Contracts\Factory;
-use GuzzleHttp\Client as GuzzleClient;
 
 class SoracomServiceProvider extends ServiceProvider
 {

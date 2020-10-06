@@ -2,9 +2,9 @@
 
 namespace Revolution\Soracom;
 
+use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Traits\Macroable;
 use Revolution\Soracom\Contracts\Factory;
-use GuzzleHttp\ClientInterface;
 
 class Client implements Factory
 {
