@@ -15,12 +15,13 @@
   "require": {
     "php": "^7.2",
     "ext-json": "*",
-    "guzzlehttp/guzzle": "^6.0",
+    "guzzlehttp/guzzle": "^6.0||^7.0",
     "illuminate/notifications": "^6.0",
     "illuminate/view": "^6.0",
     "laravel-zero/framework": "^6.0",
     "ramsey/uuid": "^4.0",
-    "revolution/discord-manager": "^1.0"
+    "revolution/discord-manager": "^1.0",
+    "revolution/laravel-line-sdk": "^1.0"
   },
   "require-dev": {
     "mockery/mockery": "^1.3",

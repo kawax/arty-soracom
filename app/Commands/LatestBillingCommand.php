@@ -37,6 +37,7 @@ class LatestBillingCommand extends Command
         //        $this->info($res['amount']);
 
         Notification::route('discord', config('services.discord.channel'))
+                    ->route('line-notify', config('line.notify.personal_access_token'))
                     ->notify(new SoracomNotification($res));
     }
 
@@ -44,6 +45,7 @@ class LatestBillingCommand extends Command
      * Define the command's schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     *
      * @return void
      */
     public function schedule(Schedule $schedule): void
