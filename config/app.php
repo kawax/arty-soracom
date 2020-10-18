@@ -89,6 +89,8 @@ return [
 
         Revolution\Soracom\SoracomServiceProvider::class,
 
+        Revolution\Line\Providers\LineServiceProvider::class,
+
         App\Providers\AppServiceProvider::class,
     ],
 ];
