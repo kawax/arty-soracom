@@ -2806,16 +2806,16 @@
         },
         {
             "name": "linecorp/line-bot-sdk",
-            "version": "5.1.0",
+            "version": "6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/line/line-bot-sdk-php.git",
-                "reference": "7b598bc3a031ce93c9d61e1e448fe10cc4a50317"
+                "reference": "88fc4afb3c50315708b1c4487845d9c03c44a62b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/7b598bc3a031ce93c9d61e1e448fe10cc4a50317",
-                "reference": "7b598bc3a031ce93c9d61e1e448fe10cc4a50317",
+                "url": "https://api.github.com/repos/line/line-bot-sdk-php/zipball/88fc4afb3c50315708b1c4487845d9c03c44a62b",
+                "reference": "88fc4afb3c50315708b1c4487845d9c03c44a62b",
                 "shasum": ""
             },
             "require": {
@@ -2884,7 +2884,7 @@
                 "line",
                 "sdk"
             ],
-            "time": "2020-10-14T08:52:47+00:00"
+            "time": "2020-10-16T06:03:35+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4747,23 +4747,23 @@
         },
         {
             "name": "revolution/laravel-line-sdk",
-            "version": "1.0.9",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-line-sdk.git",
-                "reference": "aa60d0a89f17a78466a7fca895a176bc2602d5c7"
+                "reference": "7d43a71af70e439988dfe1c6a750dfd9e1994f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-line-sdk/zipball/aa60d0a89f17a78466a7fca895a176bc2602d5c7",
-                "reference": "aa60d0a89f17a78466a7fca895a176bc2602d5c7",
+                "url": "https://api.github.com/repos/kawax/laravel-line-sdk/zipball/7d43a71af70e439988dfe1c6a750dfd9e1994f82",
+                "reference": "7d43a71af70e439988dfe1c6a750dfd9e1994f82",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "illuminate/support": "^6.0||^7.0||^8.0",
                 "laravel/socialite": "^5.0",
-                "linecorp/line-bot-sdk": "^5.0",
+                "linecorp/line-bot-sdk": "^6.0",
                 "php": "^7.2||^8.0"
             },
             "require-dev": {
@@ -4802,7 +4802,7 @@
                 "line",
                 "sdk"
             ],
-            "time": "2020-10-19T03:36:19+00:00"
+            "time": "2020-10-19T04:29:38+00:00"
         },
         {
             "name": "ringcentral/psr7",
