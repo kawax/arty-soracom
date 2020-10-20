@@ -4747,16 +4747,16 @@
         },
         {
             "name": "revolution/laravel-line-sdk",
-            "version": "1.1.0",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-line-sdk.git",
-                "reference": "7d43a71af70e439988dfe1c6a750dfd9e1994f82"
+                "reference": "2391ac572a19e346e8dff098f73dccf4acd3d2bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-line-sdk/zipball/7d43a71af70e439988dfe1c6a750dfd9e1994f82",
-                "reference": "7d43a71af70e439988dfe1c6a750dfd9e1994f82",
+                "url": "https://api.github.com/repos/kawax/laravel-line-sdk/zipball/2391ac572a19e346e8dff098f73dccf4acd3d2bd",
+                "reference": "2391ac572a19e346e8dff098f73dccf4acd3d2bd",
                 "shasum": ""
             },
             "require": {
@@ -4802,7 +4802,7 @@
                 "line",
                 "sdk"
             ],
-            "time": "2020-10-19T04:29:38+00:00"
+            "time": "2020-10-19T23:07:21+00:00"
         },
         {
             "name": "ringcentral/psr7",
@@ -8585,16 +8585,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.4.1",
+            "version": "9.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1f09a12726593737e8a228ebb1c8647305d07c41"
+                "reference": "3866b2eeeed21b1b099c4bc0b7a1690ac6fd5baa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1f09a12726593737e8a228ebb1c8647305d07c41",
-                "reference": "1f09a12726593737e8a228ebb1c8647305d07c41",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3866b2eeeed21b1b099c4bc0b7a1690ac6fd5baa",
+                "reference": "3866b2eeeed21b1b099c4bc0b7a1690ac6fd5baa",
                 "shasum": ""
             },
             "require": {
@@ -8680,7 +8680,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-11T07:41:19+00:00"
+            "time": "2020-10-19T09:23:29+00:00"
         },
         {
             "name": "sebastian/cli-parser",
