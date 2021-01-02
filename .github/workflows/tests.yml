@@ -15,6 +15,7 @@ jobs:
         DISCORD_CHANNEL: ${{ secrets.DISCORD_CHANNEL }}
         SORACOM_ID: ${{ secrets.SORACOM_ID }}
         SORACOM_SECRET: ${{ secrets.SORACOM_SECRET }}
+        LINE_NOTIFY_PERSONAL_ACCESS_TOKEN: ${{ secrets.LINE_NOTIFY_PERSONAL_ACCESS_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1

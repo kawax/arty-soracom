@@ -13,14 +13,13 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.3||^8.0",
     "ext-json": "*",
     "guzzlehttp/guzzle": "^6.0||^7.0",
-    "illuminate/notifications": "^6.0",
-    "illuminate/view": "^6.0",
-    "laravel-zero/framework": "^6.0",
-    "ramsey/uuid": "^4.0",
-    "revolution/discord-manager": "^1.0",
+    "illuminate/notifications": "^8.0",
+    "illuminate/view": "^8.0",
+    "laravel-zero/framework": "^8.0",
+    "revolution/discord-manager": "^2.0",
     "revolution/laravel-line-sdk": "^1.0"
   },
   "require-dev": {
