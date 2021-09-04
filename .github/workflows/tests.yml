@@ -1,10 +1,10 @@
 name: tests
 
-on:
-  push:
-  pull_request:
-  schedule:
-  - cron: 5 3 * * *
+#on:
+  #push:
+  #pull_request:
+  #schedule:
+  #- cron: 5 3 * * *
 
 jobs:
   tests:
