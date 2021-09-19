@@ -66,8 +66,8 @@ class Client implements Factory
     /**
      * @param  string  $api
      * @param  array  $params
-     *
      * @return array
+     *
      * @throws
      */
     public function get(string $api, array $params = [])
@@ -87,8 +87,8 @@ class Client implements Factory
     /**
      * @param  string  $api
      * @param  array  $json
-     *
      * @return array
+     *
      * @throws
      */
     public function post(string $api, array $json = [])
@@ -126,7 +126,6 @@ class Client implements Factory
 
     /**
      * @param  ClientInterface  $client
-     *
      * @return $this
      */
     public function setHttpClient(ClientInterface $client)

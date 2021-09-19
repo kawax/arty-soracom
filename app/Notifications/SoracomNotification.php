@@ -21,7 +21,6 @@ class SoracomNotification extends Notification
      * Create a new notification instance.
      *
      * @param  array  $bill
-     *
      * @return void
      */
     public function __construct(array $bill)
@@ -33,7 +32,6 @@ class SoracomNotification extends Notification
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     *
      * @return array
      */
     public function via($notifiable)
@@ -51,7 +49,6 @@ class SoracomNotification extends Notification
 
     /**
      * @param  mixed  $notifiable
-     *
      * @return LineNotifyMessage
      */
     public function toLineNotify($notifiable)
