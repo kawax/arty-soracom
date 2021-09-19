@@ -16,7 +16,6 @@ interface Factory
     /**
      * @param  string  $email
      * @param  string  $password
-     *
      * @return $this
      */
     public function authByPassword(string $email, string $password);
@@ -24,7 +23,6 @@ interface Factory
     /**
      * @param  string  $api
      * @param  array  $params
-     *
      * @return array
      */
     public function get(string $api, array $params = []);
@@ -32,14 +30,12 @@ interface Factory
     /**
      * @param  string  $api
      * @param  array  $json
-     *
      * @return array
      */
     public function post(string $api, array $json = []);
 
     /**
      * @param  ClientInterface  $client
-     *
      * @return $this
      */
     public function setHttpClient(ClientInterface $client);

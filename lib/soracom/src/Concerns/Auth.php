@@ -20,7 +20,6 @@ trait Auth
     /**
      * @param  string  $email
      * @param  string  $password
-     *
      * @return $this
      */
     public function authByPassword(string $email, string $password)
@@ -35,8 +34,8 @@ trait Auth
 
     /**
      * @param  array  $json
-     *
      * @return $this
+     *
      * @throws
      */
     private function authRequest(array $json)

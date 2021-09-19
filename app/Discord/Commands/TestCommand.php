@@ -12,8 +12,7 @@ class TestCommand
     public $command = 'test';
 
     /**
-     * @param Message $message
-     *
+     * @param  Message  $message
      * @return string
      */
     public function __invoke(Message $message)
