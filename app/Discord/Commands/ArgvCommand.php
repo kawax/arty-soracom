@@ -16,8 +16,7 @@ class ArgvCommand
     public $command = 'argv {test} {--text=}';
 
     /**
-     * @param Message $message
-     *
+     * @param  Message  $message
      * @return string
      */
     public function __invoke(Message $message)
