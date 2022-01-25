@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "php": "^7.3||^8.0",
+    "php": "^8.0",
     "ext-json": "*",
     "guzzlehttp/guzzle": "^7.0",
     "illuminate/notifications": "^8.0",
@@ -41,9 +41,9 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "optimize-autoloader": true,
-        "platform": {
-            "ext-sockets": "1.0.0"
-        }
+    "platform": {
+      "ext-sockets": "1.0.0"
+    }
   },
   "scripts": {
     "post-root-package-install": [
